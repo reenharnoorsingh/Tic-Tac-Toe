@@ -35,6 +35,12 @@ void PrintBoard(int m, int n, char board[][n]) // prints the grid
         if (i != m - 1)
         {
             printf("\n---|---|---\n"); // style of our grid
+            /*
+              The grid will look like this:
+              1  2  3
+              4  5  6
+              7  8  9
+            */
         }
     }
     printf("\n");
@@ -94,8 +100,7 @@ int IsValidBoard(int m, int n, char board[][n]) // checks the validity of the in
         exit(0); //exits the game since there is an Invalid board
     }
 }
-void ListWinningCells(int m, int n, char board[m][n]) // gives insights to the users on how can they win
-                                                      //by adding their symbol at the recommended position
+void ListWinningCells(int m, int n, char board[m][n]) // gives hints to users about where to input to win
 {
     if ((board[0][0] == board[0][1]) && board[0][2] == '3')
         printf("\nif you put %c in cell 3 Player %c wins\n", board[0][0], board[0][0]);
