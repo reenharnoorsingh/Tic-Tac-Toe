@@ -61,6 +61,7 @@ void CreateBoard(int m, int n, char board[][n])
         char ch[2];
         scanf("%s", ch);
         c = ch[0];
+        board[(cell - 1) / 3][(cell - 1) % 3] = c;
         if (c != 'X' && c != 'O')
         {
             printf("\nEnter valid character X or O : ");
@@ -68,6 +69,7 @@ void CreateBoard(int m, int n, char board[][n])
         else
             break;
     }
+    /*
     if (cell == 1)
         board[0][0] = c;
     else if (cell == 2)
@@ -86,6 +88,7 @@ void CreateBoard(int m, int n, char board[][n])
         board[2][1] = c;
     else if (cell == 9)
         board[2][2] = c;
+    */
 
     PrintBoard(m, n, board);
 }
@@ -104,18 +107,23 @@ int IsValidBoard(int m, int n, char board[][n])
         }
     }
     if (x - o == -1 || x - o == 1 || x - o == 0)
-        printf("The board is valid ");
+        printf("The board is valid\n ");
     else
-        printf("the board is invalid");
+    {
+        printf("the board is invalid\n");
+        printf("Start the game again!");
+        exit(0);
+    }
 }
+
 int main()
 {
     char board[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
     InitializeBoard(3, 3, board);
     PrintBoard(3, 3, board);
-    for(int i = 0;i<9; i++)
+    for (int i = 0; i < 9; i++)
     {
-    CreateBoard(3, 3, board);
-    IsValidBoard(3, 3, board);
+        CreateBoard(3, 3, board);
+        IsValidBoard(3, 3, board);
     }
 }
