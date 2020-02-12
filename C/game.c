@@ -127,6 +127,24 @@ void ListWinningCells(int m, int n, char board[m][n]) // gives insights to the u
         printf("\nif you put %c in cell 9 Player %c wins\n", board[2][0], board[2][0]);
     if ((board[2][1] == board[2][2]) && board[2][0] == '7')
         printf("\nif you put %c in cell 7 Player %c wins\n", board[2][1], board[2][1]);
+    if ((board[0][1] == board[2][1]) && board[1][1] == '5')
+        printf("\nif you put %c in cell 5 Player %c wins\n", board[0][1], board[0][1]);
+    if ((board[0][0] == board[2][0]) && board[1][0] == '4')
+        printf("\nif you put %c in cell 4 Player %c wins\n", board[0][0], board[0][0]);
+    if ((board[0][2] == board[2][2]) && board[1][2] == '6')
+        printf("\nif you put %c in cell 6 Player %c wins\n", board[0][2], board[0][2]);
+    if ((board[2][2] == board[1][2]) && board[0][2] == '3')
+        printf("\nif you put %c in cell 3 Player %c wins\n", board[2][2], board[2][2]);
+    if ((board[0][0] == board[0][2]) && board[0][1] == '2')
+        printf("\nif you put %c in cell 2 Player %c wins\n", board[0][0], board[0][0]);
+    if ((board[1][1] == board[1][2]) && board[1][1] == '5')
+        printf("\nif you put %c in cell 5 Player %c wins\n", board[1][1], board[1][1]);
+    if ((board[2][0] == board[2][2]) && board[2][1] == '8')
+        printf("\nif you put %c in cell 8 Player %c wins\n", board[2][0], board[2][0]);
+    if ((board[0][2] == board[2][0]) && board[1][1] == '5')
+        printf("\nif you put %c in cell 5 Player %c wins\n", board[0][2], board[0][2]);
+    if ((board[0][0] == board[2][2]) && board[1][1] == '5')
+        printf("\nif you put %c in cell 5 Player %c wins\n", board[0][0], board[0][0]);
 }
 char WhoIsTheWinner(int m, int n, char board[][n]) //checks the inputs and if they match in a line, declares winner
 {
@@ -157,7 +175,17 @@ char WhoIsTheWinner(int m, int n, char board[][n]) //checks the inputs and if th
     }
     else if ((board[0][2] == board[1][1]) && board[0][2] == board[2][0])
     {
-        printf("Player %c is the winner", board[0][0]);
+        printf("Player %c is the winner", board[0][2]);
+        exit(0);
+    }
+    else if ((board[1][0] == board[1][1]) && board[1][0] == board[1][2])
+    {
+        printf("Player %c is the winner", board[1][0]);
+        exit(0);
+    }
+    else if ((board[0][1] == board[1][1]) && board[0][1] == board[2][1])
+    {
+        printf("Player %c is the winner", board[0][1]);
         exit(0);
     }
 }
