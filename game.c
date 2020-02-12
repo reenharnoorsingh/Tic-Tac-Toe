@@ -69,27 +69,6 @@ void CreateBoard(int m, int n, char board[][n])
         else
             break;
     }
-    /*
-    if (cell == 1)
-        board[0][0] = c;
-    else if (cell == 2)
-        board[0][1] = c;
-    else if (cell == 3)
-        board[0][2] = c;
-    else if (cell == 4)
-        board[1][0] = c;
-    else if (cell == 5)
-        board[1][1] = c;
-    else if (cell == 6)
-        board[1][2] = c;
-    else if (cell == 7)
-        board[2][0] = c;
-    else if (cell == 8)
-        board[2][1] = c;
-    else if (cell == 9)
-        board[2][2] = c;
-    */
-
     PrintBoard(m, n, board);
 }
 int IsValidBoard(int m, int n, char board[][n])
