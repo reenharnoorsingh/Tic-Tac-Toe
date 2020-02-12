@@ -4,7 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 
-void InitializeBoard(int m, int n, char board[][n])
+void InitializeBoard(int m, int n, char board[][n]) // initializes the game board
 {
     int c = 1;
     for (int i = 0; i < m; i++)
@@ -16,7 +16,7 @@ void InitializeBoard(int m, int n, char board[][n])
         }
     }
 }
-void PrintBoard(int m, int n, char board[][n])
+void PrintBoard(int m, int n, char board[][n]) // prints the grid
 {
     printf("\n");
     for (int i = 0; i < 3; i++)
@@ -34,15 +34,15 @@ void PrintBoard(int m, int n, char board[][n])
         }
         if (i != m - 1)
         {
-            printf("\n---|---|---\n");
+            printf("\n---|---|---\n"); // style of our grid
         }
     }
     printf("\n");
 }
-void CreateBoard(int m, int n, char board[][n])
+void CreateBoard(int m, int n, char board[][n]) // Fills in the numbers within grids and asks for the user input
 {
-    int cell;
-    char c;
+    int cell; // inputs number 1-9
+    char c;   // inputs either X or O
     printf("Enter the number of the cell where you want to insert X or O: ");
     while (1)
     {
@@ -69,9 +69,9 @@ void CreateBoard(int m, int n, char board[][n])
         else
             break;
     }
-    PrintBoard(m, n, board);
+    PrintBoard(m, n, board); // prints the updated board
 }
-int IsValidBoard(int m, int n, char board[][n])
+int IsValidBoard(int m, int n, char board[][n]) // checks the validity of the inputs
 {
     int x = 0; //counts X
     int o = 0; // counts O
@@ -91,10 +91,11 @@ int IsValidBoard(int m, int n, char board[][n])
     {
         printf("the board is invalid\n");
         printf("Start the game again!");
-        exit(0);
+        exit(0); //exits the game since there is an Invalid board
     }
 }
-void ListWinningCells(int m, int n, char board[m][n])
+void ListWinningCells(int m, int n, char board[m][n]) // gives insights to the users on how can they win
+                                                      //by adding their symbol at the recommended position
 {
     if ((board[0][0] == board[0][1]) && board[0][2] == '3')
         printf("\nif you put %c in cell 3 Player %c wins\n", board[0][0], board[0][0]);
@@ -127,7 +128,7 @@ void ListWinningCells(int m, int n, char board[m][n])
     if ((board[2][1] == board[2][2]) && board[2][0] == '7')
         printf("\nif you put %c in cell 7 Player %c wins\n", board[2][1], board[2][1]);
 }
-char WhoIsTheWinner(int m, int n, char board[][n])
+char WhoIsTheWinner(int m, int n, char board[][n]) //checks the inputs and if they match in a line, declares winner
 {
     if ((board[0][0] == board[0][1]) && board[0][0] == board[0][2])
     {
@@ -162,14 +163,27 @@ char WhoIsTheWinner(int m, int n, char board[][n])
 }
 int main()
 {
-    char board[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
-    InitializeBoard(3, 3, board);
-    PrintBoard(3, 3, board);
-    for (int i = 0; i < 9; i++)
+    int option;
+    char board[3][3] = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}}; // 3x3 grid with numbers 1-9
+    printf("Welcome!\n");
+    printf("MAIN MENU\n");
+    printf("Type 1 to play or 0 to exit ");
+    scanf("%d", &option);
+    if (option == 1)
     {
-        CreateBoard(3, 3, board);
-        IsValidBoard(3, 3, board);
-        ListWinningCells(3, 3, board);
-        WhoIsTheWinner(3, 3, board);
+        InitializeBoard(3, 3, board);
+        PrintBoard(3, 3, board);
+        for (int i = 0; i < 9; i++) //loop needed to run the program to provide chances for the players
+        {
+            CreateBoard(3, 3, board);
+            IsValidBoard(3, 3, board);
+            ListWinningCells(3, 3, board);
+            WhoIsTheWinner(3, 3, board);
+        }
+    }
+    else
+    {
+        printf("Exit Game!  Thank You!");
+        exit(0);
     }
 }
