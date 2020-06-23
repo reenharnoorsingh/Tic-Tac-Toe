@@ -7,3 +7,6 @@ I'll be posting this game in all the languages I learn
 
 # C
 Completed February 2020
+
+# C++
+Completed June 2020
