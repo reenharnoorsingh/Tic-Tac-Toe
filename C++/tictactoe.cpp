@@ -20,7 +20,7 @@ int main()
 
         mark = (player == 1) ? 'X' : 'O';
 
-        if (choice == 1 && Board[1] == '1')
+        if (choice == 1 && Board[1] == '1')// adding the selection into the Game Board
 
             Board[1] = mark;
         else if (choice == 2 && Board[2] == '2')
@@ -104,7 +104,7 @@ int WinnerCheck() // all the winning cases
         return -1;
 }
 
-void GameBoard()
+void GameBoard()//Generate and Prints the Game Board
 {
     system("cls");
     cout << "\n\n\tTic Tac Toe\n\n";
