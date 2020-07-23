@@ -10,3 +10,6 @@ Completed February 2020
 
 # C++
 Completed June 2020
+
+# Python
+Completed July 2020
