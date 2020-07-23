@@ -36,5 +36,5 @@ def Game():
             GameBoard[move] = turn
             count+=1
         else:
-            print('Place occupied')
+            print('Place occupied.\n Try Again')
             continue
