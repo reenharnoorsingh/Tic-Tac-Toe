@@ -22,4 +22,19 @@ def PrintBoard(board):
     print(board['7'] + '|' + board['8'] + '|' + board['9'])
 
 
+def Game():
+    turn = 'X'
+    count = 0
+    
+    for i in range(10):
+        PrintBoard(GameBoard)
+        print("It's your turn " + turn +". Add enter the box number where you want to add")
 
+        move = input()
+
+        if GameBoard[move] == ' ':
+            GameBoard[move] = turn
+            count+=1
+        else:
+            print('Place occupied')
+            continue
