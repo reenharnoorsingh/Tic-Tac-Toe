@@ -11,7 +11,7 @@ boardkeys = []
 for key in GameBoard:
     boardkeys.append(key)
 
-# Print board function Prints the game board and constantly
+# Print board function prints the game board and constantly updates it 
 
 
 def PrintBoard(board):
@@ -42,7 +42,7 @@ def Game():
             print("That place is already filled.\nTry Again")
             continue
 
-        # Now we will check if player X or O has won,for every move after 5 moves.
+        #Winning possibilities
         if count >= 5:
             if GameBoard['7'] == GameBoard['8'] == GameBoard['9'] != ' ':  # across the bottom
                 PrintBoard(GameBoard)
@@ -90,13 +90,13 @@ def Game():
             print("\nGame Over.\n")
             print("It's a Tie!!")
 
-        # Change the player after every move.
+        # Changes the player after every move.
         if turn == 'X':
             turn = 'O'
         else:
             turn = 'X'
 
-    # Now we will ask if player wants to restart the game or not.
+    # Ask if player wants to restart the game or not.
     restart = input("Do want to play Again?(y/n)")
     if restart == "y" or restart == "Y":
         for key in boardkeys:
