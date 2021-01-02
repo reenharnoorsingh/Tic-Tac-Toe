@@ -13,3 +13,6 @@ Completed June 2020
 
 # Python
 Completed July 2020
+
+# Java
+Completed January 2021
