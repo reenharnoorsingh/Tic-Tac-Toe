@@ -1,10 +1,10 @@
 import java.util.*;
 
 public class TicTacToe {
-    static ArrayList<Integer> playerPositions = new ArrayList<Integer>();
-    static ArrayList<Integer> cpuPositions = new ArrayList<Integer>();
+    static ArrayList<Integer> playerPositions = new ArrayList<Integer>();// global variable for storing player positions
+    static ArrayList<Integer> cpuPositions = new ArrayList<Integer>();// global variable for storing cpu positions
 
-    public static void printBoard(char[][] gameBoard) {
+    public static void printBoard(char[][] gameBoard) { // prints the game board
         for (char[] row : gameBoard) {
             for (char c : row) {
                 System.out.print(c);
@@ -13,14 +13,14 @@ public class TicTacToe {
         }
     }
 
-    public static void placement(char[][] gameBoard, int position, String user) {
+    public static void placement(char[][] gameBoard, int position, String user) { // places the symbol at the entered number
         char symbol = ' ';
         if (user.equals("player")) {
             symbol = 'X';
-            playerPositions.add(position);
+            playerPositions.add(position);// stores the player position
         } else if (user.equals("cpu")) {
             symbol = 'O';
-            cpuPositions.add(position);
+            cpuPositions.add(position);// stores the cpu position
         }
 
         switch (position) {
@@ -56,7 +56,7 @@ public class TicTacToe {
         }
     }
 
-    public static String checkWinner() {
+    public static String checkWinner() { // checks the winning cases
 
         List topRow = Arrays.asList(1, 2, 3);
         List midRow = Arrays.asList(4, 5, 6);
@@ -90,14 +90,17 @@ public class TicTacToe {
     }
 
     public static void main(String[] args) {
-        char[][] gameBoard = { { ' ', '|', ' ', '|', ' ' }, { '-', '+', '-', '+', '-' }, { ' ', '|', ' ', '|', ' ' },
-                { '-', '+', '-', '+', '-' }, { ' ', '|', ' ', '|', ' ' } };
+        char[][] gameBoard = { { ' ', '|', ' ', '|', ' ' }, 
+            { '-', '+', '-', '+', '-' }, 
+            { ' ', '|', ' ', '|', ' ' },
+            { '-', '+', '-', '+', '-' }, 
+            { ' ', '|', ' ', '|', ' ' } };
         printBoard(gameBoard);
         while (true) {
             Scanner scan = new Scanner(System.in);
             System.out.println("Enter your placement 1-9:");
             int playerPosition = scan.nextInt();
-            while (playerPositions.contains(playerPosition) || cpuPositions.contains(playerPosition)) {
+            while (playerPositions.contains(playerPosition) || cpuPositions.contains(playerPosition)) {//prevents the player to enter symbol in the occupied position
                 System.out.println("Position Taken!");
                 playerPosition = scan.nextInt();
             }
@@ -113,7 +116,7 @@ public class TicTacToe {
 
             Random rand = new Random();
             int cpuPosition = rand.nextInt(9) + 1;
-            while (playerPositions.contains(cpuPosition) || cpuPositions.contains(cpuPosition)) {
+            while (playerPositions.contains(cpuPosition) || cpuPositions.contains(cpuPosition)) { //prevents the cpu to add the symbol in the occupied position
                 cpuPosition = rand.nextInt(9) + 1;
             }
             placement(gameBoard, cpuPosition, "cpu");
